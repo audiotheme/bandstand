@@ -9,13 +9,16 @@
  * @since     1.0.0
  */
 
+use Bandstand\Post\Video;
+use Bandstand\Repository\PostRepository;
+
 /**
  * Retrieve a video object.
  *
  * @since 1.0.0
  *
  * @param  mixed $post Optional. CPT slug, post ID or post object.
- * @return Bandstand_Post_Video
+ * @return Video
  */
 function get_bandstand_video( $post = null ) {
 	return bandstand()->post_factory->make( 'video', $post );
@@ -26,11 +29,11 @@ function get_bandstand_video( $post = null ) {
  *
  * @since 1.0.0
  *
- * @param  Bandstand_Post_Video|array $video Video object or array of video data.
- * @return Bandstand_Post_Video
+ * @param  Video|array $video Video object or array of video data.
+ * @return Video
  */
 function save_bandstand_video( $video ) {
-	$repository = new Bandstand_Repository_PostRepository();
+	$repository = new PostRepository();
 	return $repository->save( 'video', $video );
 }
 

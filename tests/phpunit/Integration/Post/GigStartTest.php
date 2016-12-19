@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Post;
 
-use Bandstand_Post_Gig;
+use Bandstand\Post\Gig;
 
 
 class GigStartTest extends \WP_UnitTestCase {
@@ -10,7 +10,7 @@ class GigStartTest extends \WP_UnitTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		$gig = $this->getMockBuilder( '\Bandstand_Post_Gig' )
+		$gig = $this->getMockBuilder( '\Bandstand\Post\Gig' )
 			->setMethods( array( 'get_site_timezone_id' ) )
 			->getMock();
 
@@ -25,7 +25,7 @@ class GigStartTest extends \WP_UnitTestCase {
 
 	public function test_gig_properties() {
 		$data = $this->get_gig_data();
-		$gig = new Bandstand_Post_Gig( $data );
+		$gig = new Gig( $data );
 
 		$this->assertEquals( $data['start_date'], $gig->start_date );
 		$this->assertEquals( $data['start_time'], $gig->start_time);
@@ -33,12 +33,12 @@ class GigStartTest extends \WP_UnitTestCase {
 
 	public function test_get_start_date() {
 		$data = $this->get_gig_data();
-		$gig = new Bandstand_Post_Gig( $data );
+		$gig = new Gig( $data );
 		$this->assertEquals( $data['start_date'], $gig->get_start_date() );
 	}
 
 	public function test_has_start_time() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertFalse( $gig->has_start_time() );
 
 		$gig->start_time = '8:00:00';
@@ -46,7 +46,7 @@ class GigStartTest extends \WP_UnitTestCase {
 	}
 
 	public function test_get_start_time() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertNull( $gig->get_start_time() );
 
 		$gig->start_time = '8:00:00';

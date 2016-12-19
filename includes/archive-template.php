@@ -85,7 +85,7 @@ function get_bandstand_post_type_archive( $post_type = null ) {
  *
  * @param  array|string $post_types Optional. A post type name or array of
  *                                  post type names. Defaults to all archives
- *                                  registered via Bandstand_PostType_Archive::add_post_type_archive().
+ *                                  registered via \Bandstand\PostType\Archive::add_post_type_archive().
  * @return bool
  */
 function is_bandstand_post_type_archive( $post_types = array() ) {

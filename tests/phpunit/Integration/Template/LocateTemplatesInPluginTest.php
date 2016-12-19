@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Template;
 
-use Bandstand_Template_Loader;
+use Bandstand\Template\TemplateLoader;
 
 class LocateTemplatesInPluginTest extends \WP_UnitTestCase {
 	public function setUp() {

@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Post;
 
-use Bandstand_Post_Gig;
+use Bandstand\Post\Gig;
 
 
 class GigEndTest extends \WP_UnitTestCase {
@@ -10,7 +10,7 @@ class GigEndTest extends \WP_UnitTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		$gig = $this->getMockBuilder( '\Bandstand_Post_Gig' )
+		$gig = $this->getMockBuilder( '\Bandstand\Post\Gig' )
 			->setMethods( array( 'get_site_timezone_id' ) )
 			->getMock();
 
@@ -25,12 +25,12 @@ class GigEndTest extends \WP_UnitTestCase {
 
 	public function test_get_end_date() {
 		$data = $this->get_gig_data();
-		$gig = new Bandstand_Post_Gig( $data );
+		$gig = new Gig( $data );
 		$this->assertEquals( $data['end_date'], $gig->get_end_date() );
 	}
 
 	public function test_has_end_time() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertFalse( $gig->has_end_time() );
 
 		$gig->end_time = '8:00:00';
@@ -38,7 +38,7 @@ class GigEndTest extends \WP_UnitTestCase {
 	}
 
 	public function test_get_end_time() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertNull( $gig->get_end_time() );
 
 		$gig->end_time = '8:00:00';

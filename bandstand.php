@@ -48,7 +48,7 @@ define( 'BANDSTAND_VERSION', '0.1.0' );
 /**
  * Load the compatibility checker.
  */
-require_once( dirname( __FILE__ ) . '/classes/Compatibility.php' );
+require_once( dirname( __FILE__ ) . '/php/Compatibility.php' );
 
 /**
  * Load the plugin or display a notice about requirements.

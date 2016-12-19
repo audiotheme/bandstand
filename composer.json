@@ -25,9 +25,9 @@
     "phpunit/phpunit": "*@stable"
   },
   "autoload": {
-    "classmap": [
-      "classes/"
-    ]
+    "psr-4": {
+      "Bandstand\\": "php/"
+    }
   },
   "autoload-dev": {
     "psr-4": {

@@ -14,6 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use Bandstand\AJAX;
+use Bandstand\Plugin;
+use Bandstand\Module;
+use Bandstand\Provider;
+use Bandstand\Screen;
+
 /**
  * Load the autoloader.
  */
@@ -26,13 +32,13 @@ if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
  *
  * @since 1.0.0
  *
- * @return Bandstand_Plugin
+ * @return \Bandstand\Plugin
  */
 function bandstand() {
 	static $instance;
 
 	if ( null === $instance ) {
-		$instance = new Bandstand_Plugin();
+		$instance = new Plugin();
 	}
 
 	return $instance;
@@ -59,31 +65,31 @@ if ( is_admin() ) {
 }
 
 $bandstand
-	->register_hooks( new Bandstand_Provider_Setup() )
-	->register_hooks( new Bandstand_Provider_Widgets() )
-	->register_hooks( new Bandstand_Provider_Assets() )
-	->register_hooks( new Bandstand_Provider_GeneralHooks() )
-	->register_hooks( new Bandstand_Provider_MediaHooks() )
-	->register_hooks( new Bandstand_Provider_TemplateHooks() )
+	->register_hooks( new Provider\Setup() )
+	->register_hooks( new Provider\Widgets() )
+	->register_hooks( new Provider\Assets() )
+	->register_hooks( new Provider\GeneralHooks() )
+	->register_hooks( new Provider\MediaHooks() )
+	->register_hooks( new Provider\TemplateHooks() )
 	->modules
-	->register( new Bandstand_Module_Archives( $bandstand ) )
-	->register( new Bandstand_Module_Gigs( $bandstand ) )
-	->register( new Bandstand_Module_Discography( $bandstand ) )
-	->register( new Bandstand_Module_Videos( $bandstand ) );
+	->register( new Module\ArchivesModule( $bandstand ) )
+	->register( new Module\GigsModule( $bandstand ) )
+	->register( new Module\DiscographyModule( $bandstand ) )
+	->register( new Module\VideosModule( $bandstand ) );
 
 if ( is_admin() ) {
 	$bandstand
-		->register_hooks( new Bandstand_UpgradeManager() )
-		->register_hooks( new Bandstand_Provider_AdminHooks() )
-		->register_hooks( new Bandstand_AJAX_Admin() )
-		->register_hooks( new Bandstand_Provider_AdminAssets() )
-		->register_hooks( new Bandstand_Screen_Dashboard() )
-		->register_hooks( new Bandstand_Screen_Settings() )
-		->register_hooks( new Bandstand_Provider_Setting_GoogleMaps() );
+		->register_hooks( new Provider\UpgradeManager() )
+		->register_hooks( new Provider\AdminHooks() )
+		->register_hooks( new AJAX\Admin() )
+		->register_hooks( new Provider\AdminAssets() )
+		->register_hooks( new Screen\Dashboard() )
+		->register_hooks( new Screen\Settings() )
+		->register_hooks( new Provider\Setting\GoogleMaps() );
 }
 
 if ( is_network_admin() ) {
-	$bandstand->register_hooks( new Bandstand_Screen_Network_Settings() );
+	$bandstand->register_hooks( new Screen\Network\Settings() );
 }
 
 /**

@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Post;
 
-use Bandstand_Post_Gig;
+use Bandstand\Post\Gig;
 
 
 class GigTimeZoneTest extends \WP_UnitTestCase {
@@ -37,12 +37,12 @@ class GigTimeZoneTest extends \WP_UnitTestCase {
 	}
 
 	public function test_has_timezone() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertFalse( $gig->has_timezone() );
 	}
 
 	public function test_get_timezone_id_from_site() {
-		$gig = new Bandstand_Post_Gig();
+		$gig = new Gig();
 		$this->assertEquals( 'America/Los_Angeles', $gig->get_timezone_id() );
 	}
 

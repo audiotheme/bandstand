@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Template;
 
-use Bandstand_Template_Loader;
+use Bandstand\Template\TemplateLoader;
 
 class LocateTemplatesInAddOnTest extends \WP_UnitTestCase {
 	public function setUp() {
@@ -10,7 +10,7 @@ class LocateTemplatesInAddOnTest extends \WP_UnitTestCase {
 		add_filter( 'bandstand_template_paths', array( $this, '_register_addon_templates_directory' ) );
 
 		$this->plugin = bandstand();
-		$this->loader = new Bandstand_Template_Loader( $this->plugin );
+		$this->loader = new TemplateLoader( $this->plugin );
 	}
 
 	public function tearDown() {

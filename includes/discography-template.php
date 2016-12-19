@@ -9,13 +9,17 @@
  * @since     1.0.0
  */
 
+use Bandstand\Post\Record;
+use Bandstand\Post\Track;
+use Bandstand\Repository\PostRepository;
+
 /**
  * Retrieve a record.
  *
  * @since 1.0.0
  *
  * @param  int|WP_Post|string $post Optional. Post ID, post object, or CPT slug. Defaults to the current post.
- * @return Bandstand_Post_Record
+ * @return Record
  */
 function get_bandstand_record( $post = null ) {
 	return bandstand()->post_factory->make( 'record', $post );
@@ -26,11 +30,11 @@ function get_bandstand_record( $post = null ) {
  *
  * @since 1.0.0
  *
- * @param  Bandstand_Post_Record|array $record Record object or array of record data.
- * @return Bandstand_Post_Record
+ * @param  Record|array $record Record object or array of record data.
+ * @return Record
  */
 function save_bandstand_record( $record ) {
-	$repository = new Bandstand_Repository_PostRepository();
+	$repository = new PostRepository();
 	return $repository->save( 'record', $record );
 }
 
@@ -40,7 +44,7 @@ function save_bandstand_record( $record ) {
  * @since 1.0.0
  *
  * @param  int|WP_Post|string $post Optional. Post ID, post object, or CPT slug. Defaults to the current post.
- * @return Bandstand_Post_Track
+ * @return Track
  */
 function get_bandstand_track( $post = null ) {
 	return bandstand()->post_factory->make( 'track', $post );
@@ -51,11 +55,11 @@ function get_bandstand_track( $post = null ) {
  *
  * @since 1.0.0
  *
- * @param  Bandstand_Post_Track|array $track Track object or array of track data.
- * @return Bandstand_Post_Track
+ * @param  Track|array $track Track object or array of track data.
+ * @return Track
  */
 function save_bandstand_track( $track ) {
-	$repository = new Bandstand_Repository_PostRepository();
+	$repository = new PostRepository();
 	return $repository->save( 'track', $track );
 }
 

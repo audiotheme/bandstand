@@ -9,6 +9,9 @@
  * @since     1.0.0
  */
 
+use Bandstand\Post\Gig;
+use Bandstand\Repository\PostRepository;
+
 /**
  * Retrieve a gig.
  *
@@ -16,7 +19,7 @@
  *
  * @param  int|WP_Post|string $post Optional. Post ID, post object, or CPT slug.
  *                                  Defaults to the current post in the loop.
- * @return Bandstand_Post_Gig
+ * @return Gig
  */
 function get_bandstand_gig( $post = null ) {
 	return bandstand()->post_factory->make( 'gig', $post );
@@ -27,11 +30,11 @@ function get_bandstand_gig( $post = null ) {
  *
  * @since 1.0.0
  *
- * @param  Bandstand_Post_Gig|array $gig Gig object or array of gig data.
- * @return Bandstand_Post_Gig
+ * @param  Gig|array $gig Gig object or array of gig data.
+ * @return Gig
  */
 function save_bandstand_gig( $gig ) {
-	$repository = new Bandstand_Repository_PostRepository();
+	$repository = new PostRepository();
 	return $repository->save( 'gig', $gig );
 }
 

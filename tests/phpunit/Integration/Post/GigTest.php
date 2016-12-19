@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Post;
 
-use Bandstand_Post_Gig;
+use Bandstand\Post\Gig;
 
 
 class GigTest extends \WP_UnitTestCase {

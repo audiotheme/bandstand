@@ -9,13 +9,16 @@
  * @since     1.0.0
  */
 
+use Bandstand\Post\Venue;
+use Bandstand\Repository\PostRepository;
+
 /**
  * Retrieve a venue.
  *
  * @since 1.0.0
  *
  * @param  int|WP_Post|string $post Optional. Post ID, post object, or CPT slug. Defaults to the current post.
- * @return Bandstand_Post_Venue
+ * @return Venue
  */
 function get_bandstand_venue( $post = null ) {
 	if ( null === $post ) {
@@ -30,11 +33,11 @@ function get_bandstand_venue( $post = null ) {
  *
  * @since 1.0.0
  *
- * @param  Bandstand_Post_Venue|array $venue Venue object or array of venue data.
- * @return Bandstand_Post_Venue
+ * @param  Venue|array $venue Venue object or array of venue data.
+ * @return Venue
  */
 function save_bandstand_venue( $venue ) {
-	$repository = new Bandstand_Repository_PostRepository();
+	$repository = new PostRepository();
 	return $repository->save( 'venue', $venue );
 }
 

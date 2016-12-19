@@ -1,7 +1,7 @@
 <?php
 namespace Bandstand\Test\Integration\Template;
 
-use Bandstand_Template_Loader;
+use Bandstand\Template\TemplateLoader;
 
 class LocateTemplatesInThemesTest extends \WP_UnitTestCase {
 	public function setUp() {
@@ -19,7 +19,7 @@ class LocateTemplatesInThemesTest extends \WP_UnitTestCase {
 		add_filter( 'template_root',   array( $this, '_theme_root' ) );
 
 		$this->plugin = bandstand();
-		$this->loader = new Bandstand_Template_Loader( $this->plugin );
+		$this->loader = new TemplateLoader( $this->plugin );
 	}
 
 	public function teardDown() {
