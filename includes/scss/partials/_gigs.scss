@@ -1,0 +1,284 @@
+/**
+ * Events
+ * -----------------------------------------------------------------------------
+ */
+
+
+/* Event Archive
+------------------------------------------------------------------------------*/
+
+ul.bandstand-gigs {
+	@extend .bandstand-clearfix;
+
+	border-color: #d3d3d3;
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	line-height: 1.5;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		margin: 0;
+	}
+}
+
+.bandstand-gig-card {
+	background: transparent;
+	border-color: #d3d3d3;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	box-shadow: none;
+	clear: both;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	.bandstand-gig-title {
+		clear: none;
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0;
+	}
+
+	.bandstand-gig-meta-datetime {
+		float: left;
+		margin-right: -150px;
+		padding: 10px;
+		width: 130px;
+
+		.bandstand-gig-date {
+			display: block;
+			font-weight: bold;
+		}
+
+		.bandstand-gig-time {
+			display: block;
+		}
+	}
+
+	.bandstand-gig-details {
+		padding: 10px 10px 10px 150px;
+
+		.bandstand-gig-note {
+			margin: 10px 0 0 0;
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.bandstand-gig-place {
+			clear: none;
+			margin: 0;
+
+			.bandstand-gig-location {
+				display: block;
+				font-weight: bold;
+			}
+
+			.bandstand-gig-venue {
+				display: block;
+			}
+		}
+	}
+
+	.bandstand-gig-meta-tickets {
+		margin-left: 140px;
+		padding: 0 10px 10px 10px;
+
+		.bandstand-gig-tickets-price {
+			display: block;
+			font-weight: bold;
+		}
+
+		.bandstand-gig-tickets-url {
+			display: block;
+		}
+	}
+}
+
+/* Desktop only */
+.min-width-600 {
+	&.bandstand-gigs {
+		.bandstand-gig-card {
+			&.has-bandstand-ticket-meta .bandstand-gig-details {
+				padding-right: 120px;
+			}
+
+			.bandstand-gig-meta-tickets {
+				margin-left: 0;
+				padding: 10px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				text-align: right;
+				width: 100px;
+			}
+		}
+	}
+}
+
+
+/* Single Event
+------------------------------------------------------------------------------*/
+
+dl.bandstand-gig-single {
+	background: transparent;
+	border-width: 0;
+	box-shadow: none;
+	line-height: 1.5;
+	margin-right: 0;
+	margin-left: 0;
+	padding: 0;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	.bandstand-content {
+		padding: 30px 10px 0 10px;
+	}
+
+	.bandstand-gig-description {
+		border-color: #d3d3d3;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		margin: 0;
+		padding: 20px 10px;
+
+		.bandstand-gig-note {
+			margin: 10px 0 0 0;
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.bandstand-gig-place {
+			font-size: 18px;
+			font-weight: bold;
+			margin: 0;
+
+			.country-name,
+			.sep-country-name {
+				font-weight: normal;
+			}
+		}
+	}
+
+	.bandstand-gig-header {
+		border-color: #d3d3d3;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		font-size: 24px;
+		font-weight: bold;
+		line-height: 36px;
+		margin: 0;
+		padding: 0 10px 20px 10px;
+
+		.bandstand-gig-title {
+			font-weight: normal;
+			margin: 0 0 4px 0;
+		}
+	}
+
+	.bandstand-gig-meta {
+		border-top-width: 0;
+		margin: 0;
+
+		.bandstand-gig-tickets-link {
+			&:before {
+				content: "\2022\00a0";
+				padding: 0 5px;
+			}
+		}
+
+		.bandstand-gig-time {
+			border-width: 0;
+		}
+	}
+
+	.bandstand-gig-venue {
+		@extend .bandstand-clearfix;
+
+		border-color: #d3d3d3;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		margin: 0;
+		padding: 20px 10px;
+
+		.venue-name {
+			clear: both;
+			display: block;
+			font-weight: bold;
+			width: 100%;
+		}
+
+		.venue-address {
+			display: block;
+
+			.street-address {
+				display: block;
+			}
+
+			.sep-street-address {
+				display: none;
+			}
+		}
+
+		.bandstand-venue-url {
+			display: block;
+		}
+
+		.bandstand-venue-map {
+			iframe {
+				display: none;
+			}
+		}
+	}
+}
+
+/* Tablets + Desktop */
+.min-width-400 {
+	.bandstand-gig-single {
+		.bandstand-gig-venue {
+			.venue-address {
+				float: left;
+
+				.street-address,
+				.sep-street-address {
+					display: inline;
+				}
+			}
+
+			.bandstand-venue-meta {
+				float: right;
+				text-align: right;
+			}
+
+			.bandstand-venue-map {
+				clear: both;
+				display: block;
+				float: left;
+				padding-top: 20px;
+				width: 100%;
+
+				iframe {
+					display: block;
+					max-width: 100%;
+				}
+
+				.venue-map-link {
+					display: none;
+				}
+			}
+		}
+	}
+}

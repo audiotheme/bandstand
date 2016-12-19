@@ -1,0 +1,67 @@
+.bandstand-thumbnail {
+	background: #efefef;
+	color: #fff;
+	display: block;
+	height: 0;
+	padding-bottom: 100%;
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+
+	&:after {
+		content: "";
+		display: block;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transition: background 0.3s;
+	}
+
+	img {
+		display: block;
+		height: auto;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	&:hover{
+		text-decoration: none;
+
+		&:after {
+			background: rgba(0, 0, 0, 0.65);
+		}
+
+		.bandstand-thumbnail-action {
+			visibility: visible;
+		}
+	}
+}
+
+.bandstand-thumbnail-action {
+	color: #fff;
+	font-family: sans-serif;
+	opacity: 0.8;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	text-transform: uppercase;
+	transform: translate(-50%, -50%);
+	visibility: hidden;
+	width: 100%;
+	z-index: 5;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.bandstand-thumbnail--16x9 {
+	padding-bottom: 56.25%;
+}

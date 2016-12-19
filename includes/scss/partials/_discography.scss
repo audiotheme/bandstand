@@ -1,0 +1,328 @@
+/**
+ * Discography
+ * -----------------------------------------------------------------------------
+ */
+
+
+/* Record Archive
+------------------------------------------------------------------------------*/
+
+.bandstand-records {
+	//@extend .bandstand-clearfix;
+
+	line-height: 1.5;
+}
+
+
+/* Single Record
+------------------------------------------------------------------------------*/
+
+.bandstand-record {
+	@extend .bandstand-clearfix;
+
+	background: transparent;
+	border-width: 0;
+	box-shadow: none;
+	line-height: 1.5;
+	padding: 0;
+	width: auto;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		clear: none;
+	}
+
+	.bandstand-record-artwork {
+		margin: 0 0 30px 0;
+		max-width: 400px;
+
+		img,
+		img.wp-post-image {
+			height: auto;
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.bandstand-record-header {
+		padding: 0;
+		width: 100%;
+
+		.bandstand-record-title {
+			border-width: 0;
+			font-size: 24px;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+		}
+
+		.bandstand-record-subtitle {
+			border-width: 0;
+
+			em {
+				font-style: normal;
+			}
+		}
+
+		.bandstand-record-artist {
+			font-weight: normal;
+			margin: 0;
+		}
+
+		.bandstand-record-meta {
+			margin-top: 20px;
+			margin-left: 0;
+		}
+	}
+
+	.bandstand-record-links {
+		.bandstand-record-links-list {
+			margin-left: 0;
+		}
+
+		.bandstand-record-links-title {
+			display: none;
+		}
+	}
+
+	.bandstand-content {
+		margin-top: 30px;
+		width: 100%;
+	}
+}
+
+.bandstand-record-links-list {
+	list-style: none;
+	margin: 20px 0 0 0;
+	padding: 0;
+
+	.bandstand-record-links-item {
+		display: inline;
+		margin: 0;
+
+		.bandstand-record-link {
+			background: #333;
+			border-radius: 3px;
+			color: #fff;
+			display: inline-block;
+			font-weight: bold;
+			margin: 0 10px 10px 0;
+			padding: 4px 10px;
+			text-decoration: none;
+			transition: none;
+
+			&:hover {
+				background: #fff;
+				border: 1px solid #333;
+				color: #333;
+				padding: 3px 9px;
+			}
+		}
+	}
+}
+
+.bandstand-tracklist-section {
+	clear: both;
+	margin: 20px 0 0 0;
+
+	.bandstand-tracklist-title {
+		margin-bottom: 20px;
+	}
+
+	.bandstand-tracklist {
+		margin-left: 0;
+	}
+}
+
+.bandstand-tracklist {
+	border-color: #d3d3d3;
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	counter-reset: li;
+	display: table;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+
+	.bandstand-track {
+		border-color: #d3d3d3;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		display: table-row;
+		position: relative;
+
+		&:before {
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			border-color: #d3d3d3;
+			border-style: solid;
+			border-width: 0 1px 1px 0;
+			content: counter(li);
+			counter-increment: li;
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			width: 50px;
+		}
+
+		.bandstand-track-cell {
+			border-color: #d3d3d3;
+			border-style: solid;
+			border-width: 0 0 1px 0;
+			display: table-cell;
+			padding: 6px 10px;
+			vertical-align: middle;
+		}
+
+		.bandstand-track-meta {
+			display: block;
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+
+			.bandstand-track-download-link {
+				display: none;
+			}
+		}
+
+		.bandstand-track-title {
+			font-weight: bold;
+		}
+
+		/* Track States */
+		&.is-playable:hover {
+			background: #f7f7f7;
+
+			&:before {
+				@extend %bandstand-icon-play;
+
+				content: "";
+				cursor: pointer;
+				display: table-cell;
+			}
+		}
+
+		&.is-playing.is-current,
+		&.is-playing.is-current:hover {
+			background: #f7f7f7;
+
+			&:before {
+				@extend %bandstand-icon-pause;
+
+				content: "";
+			}
+		}
+	}
+}
+
+/* Tablets + Desktop */
+.min-width-400 {
+	.bandstand-tracklist {
+		.bandstand-track {
+			&:before {
+				width: 40px;
+			}
+		}
+	}
+
+	.bandstand-record {
+		display: flex;
+		flex-flow: row wrap;
+
+		.bandstand-record-header {
+			box-sizing: border-box;
+			flex: 1 0 auto;
+			order: 2;
+			padding-left: 30px;
+			width: calc(100% - 240px);
+		}
+
+		.bandstand-record-artwork {
+			flex: 0 1 240px;
+			order: 1;
+		}
+
+		.entry-content,
+		.bandstand-tracklist-section {
+			flex: 1 0 auto;
+			order: 3;
+			width: 100%;
+		}
+
+		.record-meta {
+			dl {
+				justify-content: flex-start;
+			}
+		}
+	}
+}
+
+.min-width-600 {
+	.bandstand-tracklist {
+		.bandstand-track {
+			.bandstand-track-meta {
+				float: right;
+				text-align: right;
+
+				.bandstand-track-download-link {
+					@extend %bandstand-icon-download;
+
+					background-position: 0 0;
+					background-repeat: no-repeat;
+					display: inline-block;
+					height: 16px;
+					opacity: 0.3;
+					overflow: hidden;
+					text-indent: 100%;
+					vertical-align: middle;
+					white-space: nowrap;
+					width: 16px;
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+
+			.bandstand-track-title {
+				float: left;
+			}
+		}
+	}
+}
+
+
+/* Single Track
+------------------------------------------------------------------------------*/
+
+.bandstand-tracklist-single {
+	.bandstand-track {
+		&:before {
+			display: none;
+		}
+
+		/* Track States */
+		&.is-playable {
+			&:before {
+				@extend %bandstand-icon-play;
+
+				content: "";
+				display: table-cell;
+			}
+
+			&:hover {
+				background: #f7f7f7;
+			}
+		}
+
+		&.is-playing.is-current,
+		&.is-playing.is-current:hover {
+			&:before {
+				@extend %bandstand-icon-pause;
+			}
+		}
+	}
+}

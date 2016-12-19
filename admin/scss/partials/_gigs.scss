@@ -1,0 +1,89 @@
+/**
+ * Gigs
+ * -----------------------------------------------------------------------------
+ */
+
+
+/* Manage Gigs Screen
+------------------------------------------------------------------------------*/
+
+.screen-edit-bandstand_gig {
+	#filter-by-date,
+	.inline-edit-date,
+	.inline-edit-col-left .inline-edit-group {
+		display: none;
+	}
+
+	.column-title {
+		.row-title {
+			font-weight: normal;
+		}
+	}
+}
+
+
+/* Edit Gig Screen
+------------------------------------------------------------------------------*/
+
+.bandstand-gig-editor,
+.bandstand-gig-editor * {
+	box-sizing: border-box;
+}
+
+.bandstand-gig-editor {
+	@include clearfix();
+
+	margin-top: 20px;
+	position: relative;
+	width: 100%;
+}
+
+.bandstand-gig-editor-primary {
+	float: left;
+	width: calc(50% - 10px);
+}
+
+.bandstand-gig-editor-secondary {
+	float: right;
+	width: calc(50% - 10px);
+}
+
+.bandstand-gig-date-picker {
+	margin-bottom: 20px;
+}
+
+.bandstand-gig-time-picker {
+	width: 100%;
+
+	.bandstand-input-group-field,
+	input.bandstand-input-group-field {
+		height: 34px;
+	}
+
+	.bandstand-input-group-trigger {
+		width: 34px;
+	}
+}
+
+.bandstand-gig-venue-details {
+	color: #545454;
+	font-size: 14px;
+	line-height: (22 / 14);
+
+	.venue-name {
+		color: #545454;
+		font-size: 18px;
+		font-weight: normal;
+		line-height: (27 / 18);
+		margin: 0;
+	}
+}
+
+#bandstand-gig-note-meta-box {
+	clear: both;
+	margin-bottom: 0;
+
+	#excerpt {
+		margin: 0 0 6px 0;
+	}
+}

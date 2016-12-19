@@ -1,0 +1,50 @@
+// Usage: @include clearfix();
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// Usage: @include icon();
+@mixin icon( $font-family ) {
+	display: inline-block;
+	font-family: $font-family;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	speak: none;
+	text-align: center;
+	text-decoration: inherit;
+	text-transform: none;
+	transition: color .1s ease-in 0;
+	vertical-align: top;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+// Usage: @extend %dashicon;
+%dashicon {
+	@include icon( "dashicons" );
+}
+
+// Usage: @extend %genericon;
+%genericon {
+	@include icon( "Genericons" );
+}
+
+// Link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+// Support: IE9+
+// Usage: @include vertical-center();
+@mixin vertical-center() {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-backface-visibility: hidden;
+}

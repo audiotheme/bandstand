@@ -1,0 +1,37 @@
+/**
+ * Common / Shared Styles
+ * -----------------------------------------------------------------------------
+ */
+
+// Prevent elements with .no-fouc from showing if JavaScript is enabled.
+.js .no-fouc {
+	visibility: hidden;
+}
+
+.bandstand-archive-intro {
+	line-height: 1.5;
+	margin: 0 0 30px 0;
+}
+
+.bandstand-archive-title {
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0 0 1.5em 0;
+}
+
+
+.bandstand-theme-compat {
+	// Hide singular titles when theme compatibility mode is active.
+	&.single {
+		.bandstand-gig-title,
+		.bandstand-record-title,
+		.bandstand-video-title {
+			display: none;
+		}
+	}
+
+	.hentry[class*="bandstand_"] .hentry {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}

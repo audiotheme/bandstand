@@ -1,0 +1,342 @@
+/**
+ * Discography
+ * -----------------------------------------------------------------------------
+ */
+
+// Hide elements on the record list and edit screens.
+body.screen-edit-bandstand_record select[name="m"],
+body.screen-edit-bandstand_record #post-query-submit {
+	display: none;
+}
+
+// Hide elements on track list and edit screens.
+body.screen-bandstand_track .page-title-action,
+body.screen-edit-bandstand_track .page-title-action,
+body.screen-edit-bandstand_track select[name="m"] {
+	display: none;
+}
+
+
+/* Record Details Meta Box
+-------------------------------------------------------------- */
+
+// Links repeater.
+#record-links {
+	border-spacing: 0;
+	width: 100%;
+
+	td {
+		padding: 2px 0;
+	}
+
+	th {
+		text-align: left;
+	}
+
+	tfoot td {
+		padding-top: 5px;
+
+		a {
+			float: right;
+			margin-left: 10px;
+		}
+
+		.bandstand-repeater-sort-warning {
+			color: red;
+		}
+	}
+
+	.column-action {
+		padding: 0 0 0 5px;
+	}
+}
+
+
+/* Tracklist
+-------------------------------------------------------------- */
+
+.bandstand-panel--tracklist {
+	.bandstand-panel-body {
+		padding: 0;
+	}
+}
+
+.bandstand-tracklist {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.bandstand-tracklist-item {
+	border-bottom: 1px solid #dedede;
+	margin: 0;
+	padding: 10px 14px;
+
+	&:last-child {
+		border-bottom-width: 0;
+	}
+}
+
+
+/* Track Record Panel
+-------------------------------------------------------------- */
+
+.bandstand-track-record-panel {
+	margin-top: 10px;
+	margin-bottom: 0;
+
+	table {
+		th {
+			text-align: left;
+		}
+	}
+
+	.bandstand-record-card {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	.bandstand-record-card-thumbnail {
+		max-width: 100px;
+		padding-right: 20px;
+
+		img {
+			height: auto;
+			max-width: 100%;
+		}
+	}
+}
+
+
+/* Tracklist Manager
+-------------------------------------------------------------- */
+
+.bandstand-panel--tracklist {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+// Spinners next to buttons in the primary toolbar
+.bandstand-tracklist-frame .media-toolbar-primary .spinner {
+	margin-top: 20px;
+}
+
+.bandstand-tracklist-manager,
+.bandstand-tracklist-manager *,
+.media-modal .bandstand-tracklist-manager *,
+.bandstand-record-finder,
+.bandstand-record-finder * {
+	box-sizing: border-box;
+}
+
+.bandstand-tracklist-manager {
+	padding-left: 300px;
+	padding-right: 300px;
+}
+
+.bandstand-tracklist-manager th {
+	padding-right: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.bandstand-tracklist-autonumber-setting {
+	display: inline-block;
+	line-height: 30px;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+.bandstand-tracks {
+	border-right: 1px solid #dfdfdf;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 300px;
+}
+
+.bandstand-tracks ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.bandstand-tracks-list-item {
+	border-bottom: 1px solid #dfdfdf;
+	cursor: pointer;
+	margin: 0;
+	padding: 10px 20px;
+}
+
+.bandstand-tracks-list-item:hover {
+	background: #f5f5f5;
+}
+
+.bandstand-tracks-list-item.is-selected,
+.bandstand-tracks-list-item.is-selected:hover {
+	background: #f3f3f3;
+	font-weight: 600;
+}
+
+.bandstand-tracks-list-item-title.is-empty {
+	color: #999;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.bandstand-track-panel {
+	overflow: auto;
+	padding: 24px 16px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 300px;
+}
+
+.bandstand-track-panel h2 {
+	margin-top: 0;
+}
+
+.bandstand-track-edit-form textarea {
+	margin: 1px;
+	width: 25em;
+}
+
+.bandstand-track-edit-form td .spinner,
+.bandstand-track-meta .spinner {
+	margin: 6px 0 0 -26px;
+	position: relative;
+	left: -6px;
+}
+
+.bandstand-track-sidebar {
+	background: #f3f3f3;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	overflow: auto;
+	padding: 24px 16px 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 300px;
+	z-index: 75;
+}
+
+.bandstand-track-sidebar h2 {
+	color: #666;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 8px;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.bandstand-delete-track {
+	color: #bc0b0b;
+}
+
+@media (max-width: 1276px) {
+	.bandstand-tracklist-manager {
+		padding-right: 0;
+	}
+
+	.bandstand-track-panel {
+		padding-bottom: 0;
+	}
+
+	.bandstand-track-sidebar {
+		border-width: 1px 0 0 0;
+		position: relative;
+		margin: 24px -16px 0;
+		width: auto;
+	}
+}
+
+
+.bandstand-record-finder {
+	overflow: auto;
+	padding: 24px 16px;
+	padding-right: 316px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.bandstand-record-finder-search-group {
+
+}
+
+.bandstand-record-finder-search .bandstand-input-group {
+	input.bandstand-input-group-field {
+		box-shadow: inset 2px 2px 4px -2px rgba( 0, 0, 0, 0.1 );
+		font-size: 18px;
+		height: 50px;
+		padding: 12px 14px;
+		width: 100%;
+	}
+
+	.bandstand-input-group-button .button {
+		font-size: 14px;
+		height: 50px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.bandstand-record-finder-services-panel {
+	background: #f3f3f3;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	overflow: auto;
+	padding: 24px 16px 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 300px;
+	z-index: 75;
+}
+
+.bandstand-record-finder ul {
+	list-style: none;
+	margin: 0;
+	overflow: auto;
+	padding: 0 0 18px;
+	position: absolute;
+	top: 98px;
+	right: 300px;
+	bottom: 0;
+	left: 0;
+}
+
+.bandstand-record-finder-result {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 0;
+	padding: 6px 16px;
+}
+
+.bandstand-record-finder-result-artwork {
+	margin-right: 10px;
+}
+
+.bandstand-record-finder-result-artwork img {
+	display: block;
+}
+
+.bandstand-record-finder-result.is-selected {
+	background: #f3f3f3;
+}

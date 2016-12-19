@@ -1,0 +1,37 @@
+.bandstand-posts-navigation {
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.nav-links {
+		@extend .bandstand-clearfix;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+
+	.nav-previous {
+		float: left;
+		text-align: left;
+		width: 50%;
+	}
+
+	&.reverse {
+		.nav-next {
+			float: left;
+			text-align: left;
+		}
+
+		.nav-previous {
+			float: right;
+			text-align: right;
+		}
+	}
+}

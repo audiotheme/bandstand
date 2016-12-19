@@ -1,0 +1,107 @@
+/* Block Grid
+------------------------------------------------------------------------------*/
+
+$block-grid-gutter: 25;
+$block-grid-margin: 20;
+
+.bandstand-block-grid {
+	clear: both;
+	display: flex;
+	flex-flow: row wrap;
+
+	&,
+	.entry &,
+	.hentry &,
+	.entry & > li,
+	.hentry & > li {
+		list-style: none;
+	}
+
+	.bandstand-block-grid-item {
+		box-sizing: border-box;
+		margin-bottom: ( $block-grid-margin * 2 ) + px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.bandstand-block-grid-item {
+	flex: 0 0 100%;
+	max-width: 100%;
+	min-width: 0; // http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width
+}
+
+
+/* Block Grid: Modifiers
+------------------------------------------------------------------------------*/
+
+/* Gutters */
+
+.bandstand-block-grid--gutters {
+	&,
+	.entry &,
+	.hentry & {
+		margin-right: -$block-grid-margin + px;
+		margin-left: -$block-grid-margin + px;
+	}
+
+	> .bandstand-block-grid-item {
+		padding-right: $block-grid-margin + px;
+		padding-left: $block-grid-margin + px;
+	}
+}
+
+/* Alignments */
+
+.bandstand-block-grid--centered {
+	justify-content: center;
+}
+
+
+/* Block Grid: Responsive Modifiers
+------------------------------------------------------------------------------*/
+
+// Do not include .block-grid in the .clearfix rules; it breaks rounding %'s
+
+// max-width properties are needed for IE to account for padding.
+// http://stackoverflow.com/questions/21942183/multiline-flexbox-in-ie11-calculating-widths-incorrectly
+
+.min-width-400 {
+	&.bandstand-block-grid-2,
+	&.bandstand-block-grid-3,
+	&.bandstand-block-grid-4,
+	&.bandstand-block-grid-5 {
+		 > .bandstand-block-grid-item {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+}
+
+.min-width-600 {
+	.bandstand-block-grid--gutters {
+		margin-right: -$block-grid-gutter + px;
+		margin-left: -$block-grid-gutter + px;
+	}
+
+	&.bandstand-block-grid-3 {
+		 > .bandstand-block-grid-item {
+			flex: 0 0 33.3333%;
+			max-width: 33.3333%;
+		}
+	}
+
+	&.bandstand-block-grid-4 {
+		 > .bandstand-block-grid-item {
+			flex: 0 0 25%;
+			max-width: 25%;
+		}
+	}
+
+	&.bandstand-block-grid-5 {
+		 > .bandstand-block-grid-item {
+			flex: 0 0 20%;
+			max-width: 20%;
+		}
+	}
+}

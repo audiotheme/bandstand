@@ -1,0 +1,34 @@
+/* Videos
+-------------------------------------------------------------- */
+
+.bandstand-video-preview {
+	padding: 0 0 56.25% 0;
+	position: relative;
+	width: 100%;
+
+	embed,
+	iframe,
+	object {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+}
+
+#bandstand-select-oembed-thumb {
+	clear: both;
+	display: none;
+	float: none;
+	margin-bottom: 10px;
+	width: 100%;
+
+	.spinner {
+		display: none;
+		float: none;
+		margin-left: 5px;
+		margin-top: 0;
+		vertical-align: middle;
+	}
+}

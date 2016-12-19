@@ -1,0 +1,49 @@
+.bandstand-clearfix {
+	&:before,
+	&:after {
+		content: " ";
+    	display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.bandstand-label {
+	display: block;
+	font-size: 11px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+
+/* Icons
+-------------------------------------------------------------- */
+
+%bandstand-icon-download {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAQlBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACGKEuzAAAAFXRSTlMAAA2A9vLzDObxDhEZ93OQ/oQIIf1ObA7rAAAAaElEQVR4Xm3MyQ7DIADE0M4QIPvu///VSkG0SK2P7+DXnyTlPsY+S6owAowNOEJ0AxpgUIVr8pwgzZ6uB1aWtMOeFtby2Cix1UcoEFShSFCFIkEt6Dj0gWz7lE7b+YEO4L4Bui9Agd/eFXsGaavhdn4AAAAASUVORK5CYII=);
+
+	@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAADFBMVEUAAAD///8AAAAAAADI23cLAAAAA3RSTlMAAIAXzkf+AAAAV0lEQVR4XrXKsQ2AMAwF0a+0rpnDy5B9sllWyRipbL6NJURDx1WvOPQKJ7Ij4P4PpjMjNLAJCSyiBQYBToaAckkIlwSnkcA03NBdkFVoo8Be8OwLz9yrC3HQYk6qHP6yAAAAAElFTkSuQmCC);
+		background-size: 16px 16px;
+	}
+}
+
+%bandstand-icon-pause {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEUAAAD///8AAAAAAAAAAACCa9JWAAAABHRSTlMAAOby6AShwAAAACtJREFUeF5jEIQCbAwhYwUmY0UgQ8TFgcXFEcgQdjFgdjEkiQHXjjAQj6UA/eAON6xnlVcAAAAASUVORK5CYII=);
+
+	@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEUAAAD///8AAABzxoNxAAAAAnRSTlMAAHaTzTgAAAAhSURBVHheYwiFAuIYDgxAwAhkeK1awLVq4RBiIBxPkpcBKaFj46YN2z8AAAAASUVORK5CYII=);
+		background-size: 16px 16px;
+	}
+}
+
+%bandstand-icon-play {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADHJj5lAAAAC3RSTlMAALlG8vFWTdeztOIN6c8AAAAzSURBVHheY8ACpguCAJCxWxnKiN6tDGF4796tDGPsVoYxdrehM2BSyjDtaAYuF4QwMAAAxu0X60hD7/0AAAAASUVORK5CYII=);
+
+	@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAFVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAACWttmcAAAABnRSTlMAAD9Av8BOTRJhAAAAXUlEQVR4Xp3RwQnAMAwEQaWDpCW3sD24/xJC4OBgX8F6DsiWTvOo/sA9rbk+WIa9DJFCpBApRAqRQqRQCVQCFcNeBgSoBT2KvkWDodHRcmh9FBCKEIWMzqBDHRz7BcU4RyM9LM10AAAAAElFTkSuQmCC);
+		background-size: 16px 16px;
+	}
+}

@@ -1,0 +1,13 @@
+.DS_Store
+admin/css/*.min.css
+admin/js/*.bundle.js
+admin/js/*.min.js
+config.json
+dist/
+includes/css/*.min.css
+includes/js/*.bundle.js
+includes/js/*.min.js
+node_modules
+phpcs.log
+svn
+vendor/*

@@ -1,0 +1,19 @@
+.bandstand-term-list {
+	margin: 0;
+
+	.bandstand-term-list-label {
+		display: inline-block;
+		font-weight: bold;
+		margin: 0;
+
+		&:after {
+			content: ":";
+		}
+	}
+
+	.bandstand-term-list-items {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+	}
+}

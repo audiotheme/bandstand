@@ -1,0 +1,59 @@
+/**
+ * Videos
+ * -----------------------------------------------------------------------------
+ */
+
+
+/* Video Archive
+------------------------------------------------------------------------------*/
+
+// Reset styles on post containers for better theme compatibility.
+
+.bandstand-videos {
+	line-height: 1.5;
+	padding: 0;
+
+	.bandstand_video {
+		background: transparent;
+		border-width: 0;
+		box-shadow: none;
+
+		&:hover {
+			box-shadow: none;
+		}
+	}
+}
+
+
+/* Single Video
+------------------------------------------------------------------------------*/
+
+.bandstand-video {
+	background: transparent;
+	border-width: 0;
+	box-shadow: none;
+	padding: 0;
+
+	.bandstand-content {
+		margin: 0 0 1em 0;
+	}
+
+	.bandstand-embed {
+		margin: 0 0 1.5em 0;
+	}
+
+	.bandstand-video-header {
+		width: 100%;
+	}
+
+	.bandstand-video-title {
+		border-width: 0;
+		font-weight: bold;
+		margin: 0 0 20px 0;
+		padding: 0;
+	}
+
+	&:hover {
+		box-shadow: none;
+	}
+}
