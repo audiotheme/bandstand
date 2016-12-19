@@ -9,16 +9,16 @@
  * @since     1.0.0
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 use Bandstand\AJAX;
 use Bandstand\Plugin;
 use Bandstand\Module;
 use Bandstand\Provider;
 use Bandstand\Screen;
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Load the autoloader.

@@ -48,7 +48,7 @@ define( 'BANDSTAND_VERSION', '0.1.0' );
 /**
  * Load the compatibility checker.
  */
-require_once( dirname( __FILE__ ) . '/php/Compatibility.php' );
+require_once( dirname( __FILE__ ) . '/compatibility.php' );
 
 /**
  * Load the plugin or display a notice about requirements.
@@ -56,5 +56,5 @@ require_once( dirname( __FILE__ ) . '/php/Compatibility.php' );
 if ( version_compare( phpversion(), Bandstand_Compatibility::MINIMUM_PHP_VERSION, '<' ) ) {
 	add_action( 'admin_notices', array( 'Bandstand_Compatibility', 'display_php_version_notice' ) );
 } else {
-	require( dirname( __FILE__ ) . '/plugin.php' );
+	require( dirname( __FILE__ ) . '/load.php' );
 }
