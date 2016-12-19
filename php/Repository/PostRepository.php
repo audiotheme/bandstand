@@ -37,7 +37,7 @@ class PostRepository {
 	 * @todo Rename Post to CPT or something like it.
 	 * @todo Create a CPT interface.
 	 *
-	 * @param  string         $type   Type of post.
+	 * @param  string          $type   Type of post.
 	 * @param  \Bandstand\Post $object Post object or array of data.
 	 * @return \Bandstand\Post
 	 */

@@ -54,7 +54,7 @@ class TemplateManager {
 	/**
 	 * Constructor method.
 	 *
-	 * @param Plugin                $plugin        Plugin instance.
+	 * @param PluginInterface       $plugin        Plugin instance.
 	 * @param TemplateLoader        $loader        Template loader.
 	 * @param TemplateCompatibility $compatibility Template compatibility.
 	 */

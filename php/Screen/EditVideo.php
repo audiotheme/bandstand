@@ -145,8 +145,9 @@ class EditVideo extends AbstractScreen {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $content Default post thumbnail HTML.
-	 * @param int    $post_id Post ID.
+	 * @param string $content      Default post thumbnail HTML.
+	 * @param int    $post_id      Post ID.
+	 * @param int    $thumbnail_id Attachment ID.
 	 * @return string
 	 */
 	public function admin_post_thumbnail_html( $content, $post_id, $thumbnail_id ) {

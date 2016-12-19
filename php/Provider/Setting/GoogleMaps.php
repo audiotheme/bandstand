@@ -180,8 +180,8 @@ class GoogleMaps implements HookProviderInterface, PluginAwareInterface {
 	 *
 	 * @link https://www.tollmanz.com/wp-kses-performance/
 	 *
-	 * @param  string $string The unsanitized string.
-	 * @return string         The sanitized string.
+	 * @param  string $html The unsanitized string.
+	 * @return string       The sanitized string.
 	 */
 	protected function allowed_html( $html ) {
 		return wp_kses( $html, array( 'a' => array( 'href' => true, 'target' => true ) ) );
@@ -191,6 +191,8 @@ class GoogleMaps implements HookProviderInterface, PluginAwareInterface {
 	 * Load the Google Maps JavaScript API and listen for authentication errors.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $api_key API key.
 	 */
 	protected function test_javascript_api( $api_key ) {
 		?>
@@ -214,6 +216,8 @@ class GoogleMaps implements HookProviderInterface, PluginAwareInterface {
 	 * Test the Google Static Maps API.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $api_key API key.
 	 */
 	protected function test_static_api( $api_key ) {
 		$url = add_query_arg( array(

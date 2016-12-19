@@ -66,9 +66,9 @@ class MediaHooks implements HookProviderInterface, PluginAwareInterface {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array   $response Attachment data to send as JSON.
+	 * @param array    $response Attachment data to send as JSON.
 	 * @param \WP_Post $attachment Attachment object.
-	 * @param array   $meta Attachment meta.
+	 * @param array    $meta Attachment meta.
 	 * @return array
 	 */
 	public function prepare_audio_attachment_for_js( $response, $attachment, $meta ) {

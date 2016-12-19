@@ -116,7 +116,7 @@ class AdminHooks implements HookProviderInterface, PluginAwareInterface {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int     $post_id Post ID.
+	 * @param int      $post_id Post ID.
 	 * @param \WP_Post $post Post object.
 	 */
 	public function update_post_terms( $post_id, $post ) {

@@ -46,6 +46,9 @@ class Bandstand_Compatibility {
 	 * Display an admin notice.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $message Message to print.
+	 * @param string $type    Type of notice.
 	 */
 	protected static function display_notice( $message, $type = 'error' ) {
 		?>

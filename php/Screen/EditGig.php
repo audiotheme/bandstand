@@ -144,7 +144,7 @@ class EditGig extends AbstractScreen {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int     $post_id Gig post ID.
+	 * @param int      $post_id Gig post ID.
 	 * @param \WP_Post $post Gig post object.
 	 */
 	public function on_gig_save( $post_id, $post ) {

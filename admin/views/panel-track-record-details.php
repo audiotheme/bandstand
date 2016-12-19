@@ -1,3 +1,16 @@
+<?php
+/**
+ * View for display record information on the Edit Track screen.
+ *
+ * @package   Bandstand\Discography
+ * @copyright Copyright (c) 2016, AudioTheme, LLC
+ * @license   GPL-2.0+
+ * @link      https://audiotheme.com/
+ * @since     1.0.0
+ */
+
+?>
+
 <div class="bandstand-track-record-panel bandstand-panel">
 	<div class="bandstand-panel-header">
 		<h2 class="bandstand-panel-title"><?php echo esc_html( get_the_title( $record->ID ) ); ?></h2>
