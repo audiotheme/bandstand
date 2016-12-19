@@ -14,6 +14,9 @@ namespace Bandstand\Provider;
 use Bandstand\HookProviderInterface;
 use Bandstand\PluginAwareInterface;
 use Bandstand\PluginAwareTrait;
+use Bandstand\Widget\GigsWidget;
+use Bandstand\Widget\RecordWidget;
+use Bandstand\Widget\VideoWidget;
 
 /**
  * Widgets provider class.
@@ -43,15 +46,15 @@ class Widgets implements HookProviderInterface, PluginAwareInterface {
 		$widgets = array();
 
 		if ( $this->plugin->modules['discography']->is_active() ) {
-			$widgets['record'] = '\\Bandstand\\Widget\\RecordWidget';
+			$widgets['record'] = new RecordWidget( $this->plugin->templates->loader );
 		}
 
 		if ( $this->plugin->modules['gigs']->is_active() ) {
-			$widgets['gigs'] = '\\Bandstand\\Widget\\GigsWidget';
+			$widgets['gigs'] = new GigsWidget( $this->plugin->templates->loader );
 		}
 
 		if ( $this->plugin->modules['videos']->is_active() ) {
-			$widgets['video']  = '\\Bandstand\\Widget\\VideoWidget';
+			$widgets['video']  = new VideoWidget( $this->plugin->templates->loader );
 		}
 
 		if ( empty( $widgets ) ) {

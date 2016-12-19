@@ -62,7 +62,7 @@ class TemplateHooks implements HookProviderInterface, PluginAwareInterface {
 	 * @return array
 	 */
 	public function body_classes( $classes ) {
-		if ( bandstand()->templates->compatibility->is_active() ) {
+		if ( $this->plugin->templates->compatibility->is_active() ) {
 			$classes[] = 'bandstand-theme-compat';
 		}
 

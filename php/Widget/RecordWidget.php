@@ -13,6 +13,7 @@
 
 namespace Bandstand\Widget;
 
+use Bandstand\Template\TemplateLoader;
 use WP_Widget;
 
 /**
@@ -23,12 +24,24 @@ use WP_Widget;
  */
 class RecordWidget extends WP_Widget {
 	/**
+	 * Template loader instance.
+	 *
+	 * @since 1.0.0
+	 * @var TemplateLoader
+	 */
+	protected $template_loader;
+
+	/**
 	 * Set up widget options.
 	 *
 	 * @since 1.0.0
 	 * @see WP_Widget::construct()
+	 *
+	 * @param TemplateLoader $template_loader Template loader instance.
 	 */
-	public function __construct() {
+	public function __construct( TemplateLoader $template_loader ) {
+		$this->template_loader = $template_loader;
+
 		$widget_options = array(
 			'classname'                   => 'widget_bandstand_record',
 			'customize_selective_refresh' => true,
@@ -67,9 +80,8 @@ class RecordWidget extends WP_Widget {
 
 		echo $args['before_widget'];
 
-		$template_loader = bandstand()->templates->loader;
-		$template = $template_loader->locate_template( array( "widgets/{$args['id']}_record.php", 'widgets/record.php' ) );
-		$template_loader->load_template( $template, $data );
+		$template = $this->template_loader->locate_template( array( "widgets/{$args['id']}_record.php", 'widgets/record.php' ) );
+		$this->template_loader->load_template( $template, $data );
 
 		echo $args['after_widget'];
 	}

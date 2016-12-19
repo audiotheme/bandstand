@@ -55,7 +55,7 @@ class AdminAssets implements HookProviderInterface, PluginAwareInterface {
 
 		wp_localize_script( 'bandstand-dashboard', '_bandstandDashboardSettings', array(
 			'canActivateModules' => current_user_can( 'activate_plugins' ),
-			'modules'            => bandstand()->modules->prepare_for_js(),
+			'modules'            => $this->plugin->modules->prepare_for_js(),
 			'l10n'               => array(
 				'activate'   => __( 'Activate', 'bandstand' ),
 				'deactivate' => __( 'Deactivate', 'bandstand' ),
