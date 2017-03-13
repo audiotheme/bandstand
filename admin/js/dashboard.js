@@ -13,36 +13,6 @@
 
 	/**
 	 * ========================================================================
-	 * CONTROLLERS
-	 * ========================================================================
-	 */
-
-	app.controller.ModalState = Backbone.Model.extend({
-		defaults: {
-			canActivateModules: settings.canActivateModules || false,
-			current: {},
-			modules: {}
-		},
-
-		next: function() {
-			var modules = this.get( 'modules' ),
-				currentIndex = modules.indexOf( this.get( 'current' ) ),
-				nextIndex = modules.length - 1 === currentIndex ? 0 : currentIndex + 1;
-
-			this.set( 'current', modules.at( nextIndex ) );
-		},
-
-		previous: function() {
-			var modules = this.get( 'modules' ),
-				currentIndex = modules.indexOf( this.get( 'current' ) ),
-				previousIndex = 0 === currentIndex ? modules.length - 1 : currentIndex - 1;
-
-			this.set( 'current', modules.at( previousIndex ) );
-		}
-	});
-
-	/**
-	 * ========================================================================
 	 * MODELS
 	 * ========================================================================
 	 */
@@ -52,7 +22,6 @@
 			id: '',
 			name: '',
 			description: '',
-			overview: '',
 			adminMenuId: '',
 			canToggle: false,
 			isActive: true,
@@ -87,6 +56,38 @@
 	 * VIEWS
 	 * ========================================================================
 	 */
+
+	app.view.ModuleCard = wp.Backbone.View.extend({
+		initialize: function( options ) {
+			this.model = options.model;
+
+			this.listenTo( this.model, 'change:isActive', this.updateStatusClass );
+		},
+
+		render: function() {
+			this.toggleView = new app.view.ToggleSwitch({
+				model: this.model
+			});
+
+			this.$el.find( '.bandstand-module-card-header' )
+				.append( this.toggleView.render().$el );
+
+			this.buttonView = new app.view.ToggleButton({
+				model: this.model
+			});
+
+			this.$el.find( '.bandstand-module-card-body' )
+				.append( this.buttonView.render().$el );
+
+			this.updateStatusClass();
+			return this;
+		},
+
+		updateStatusClass: function() {
+			var isActive = this.model.get( 'isActive' );
+			this.$el.toggleClass( 'is-active', isActive ).toggleClass( 'is-inactive', ! isActive );
+		}
+	});
 
 	app.view.ToggleButton = wp.Backbone.View.extend({
 		className: 'button button-primary button-activate',
@@ -136,200 +137,44 @@
 		}
 	});
 
-	app.view.ModuleCard = wp.Backbone.View.extend({
+	app.view.ToggleSwitch = wp.Backbone.View.extend({
+		className: 'bandstand-toggle-switch',
+		template: wp.template( 'bandstand-module-toggle-switch' ),
+
 		events: {
-			'click .bandstand-module-card-actions-secondary a': 'openModal'
+			'click': 'toggleStatus'
 		},
 
 		initialize: function( options ) {
-			this.controller = options.controller;
-			this.modal = options.modal;
 			this.model = options.model;
-
-			this.listenTo( this.model, 'change:isActive', this.updateStatusClass );
+			this.listenTo( this.model, 'change:isActive', this.updateStatus );
 		},
 
 		render: function() {
-			this.buttonView = new app.view.ToggleButton({
-				model: this.model
-			});
-
-			this.$el.find( '.bandstand-module-card-actions-primary' )
-				.prepend( this.buttonView.render().$el );
-
-			this.updateStatusClass();
+			this.$el.html( this.template( this.model.toJSON() ) );
+			this.$checkbox = this.$( 'input[type="checkbox"]' );
+			this.$label = this.$( 'label' ).find( 'span' );
+			this.updateStatus();
 			return this;
 		},
 
-		openModal: function( e ) {
+		toggleStatus: function( e ) {
 			e.preventDefault();
-			this.controller.set( 'current', this.model );
-			this.modal.open();
+			this.model.toggleStatus();
 		},
 
-		updateStatusClass: function() {
-			var isActive = this.model.get( 'isActive' );
-			this.$el.toggleClass( 'is-active', isActive ).toggleClass( 'is-inactive', ! isActive );
-		}
-	});
+		updateStatus: function() {
+			var isActive = this.model.get( 'isActive' ),
+				text = isActive ? l10n.deactivate : l10n.activate;
 
-	app.view.Modal = wp.Backbone.View.extend({
-		className: 'bandstand-overlay',
-		tagName: 'div',
+			this.$checkbox.prop( 'checked', isActive );
+			this.$label.text( text );
 
-		events: {
-			'click .js-close': 'close'
-		},
-
-		initialize: function( options ) {
-			this.$backdrop = $();
-			this.$body = $( 'body' );
-			this.controller = options.controller;
-			this.render();
-		},
-
-		render: function() {
-			this.$el.appendTo( '#wpbody-content' );
-
-			this.views.add([
-				new app.view.ModalHeader({
-					controller: this.controller,
-					parent: this
-				}),
-				new app.view.ModalContent({
-					controller: this.controller,
-					parent: this
-				})
-			]);
-
-			if ( this.controller.get( 'canActivateModules' ) ) {
-				this.views.add([
-					new app.view.ModalFooter({
-						controller: this.controller,
-						parent: this
-					})
-				]);
+			if ( ! this.model.get( 'canToggle' ) ) {
+				this.$el.hide();
+			} else {
+				this.$el.css( 'display', '' );
 			}
-
-			if ( ! this.$backdrop.length ) {
-				this.$backdrop = this.$el.after( '<div class="bandstand-overlay-backdrop" />' ).next();
-			}
-
-			return this;
-		},
-
-		close: function() {
-			this.$el.hide();
-			this.$backdrop.hide();
-			this.$body.removeClass( 'modal-open' );
-		},
-
-		open: function() {
-			this.$el.show();
-			this.$backdrop.show();
-			this.$body.addClass( 'modal-open' );
-		}
-	});
-
-	app.view.ModalHeader = wp.Backbone.View.extend({
-		tagName: 'div',
-		className: 'bandstand-overlay-header',
-		template: wp.template( 'bandstand-module-modal-header' ),
-
-		events: {
-			'click .js-next': 'next',
-			'click .js-previous': 'previous',
-			'keyup': 'routeKey'
-		},
-
-		initialize: function( options ) {
-			this.controller = options.controller;
-			this.parent = options.parent;
-		},
-
-		render: function() {
-			this.$el.html( this.template() );
-			return this;
-		},
-
-		next: function() {
-			this.controller.next();
-		},
-
-		previous: function() {
-			this.controller.previous();
-		},
-
-		routeKey: function( e ) {
-			// Escape
-			if ( 27 === e.keyCode ) {
-				this.parent.close();
-			}
-
-			// Left arrow
-			if ( 37 === e.keyCode ) {
-				this.controller.previous();
-			}
-
-			// Right arrow
-			if ( 39 === e.keyCode ) {
-				this.controller.next();
-			}
-		}
-	});
-
-	app.view.ModalContent = wp.Backbone.View.extend({
-		tagName: 'div',
-		className: 'bandstand-overlay-content',
-		template: wp.template( 'bandstand-module-modal-content' ),
-
-		events: {
-			'click .js-toggle-module': 'toggleModuleStatus'
-		},
-
-		initialize: function( options ) {
-			this.controller = options.controller;
-			this.listenTo( this.controller, 'change:current', this.render );
-		},
-
-		render: function() {
-			this.$el.html( this.template( this.controller.get( 'current' ).toJSON() ) );
-			return this;
-		}
-	});
-
-	app.view.ModalFooter = wp.Backbone.View.extend({
-		tagName: 'div',
-		className: 'bandstand-overlay-footer',
-		template: wp.template( 'bandstand-module-modal-footer' ),
-
-		events: {
-			'click .js-toggle-module': 'toggleModuleStatus'
-		},
-
-		initialize: function( options ) {
-			this.controller = options.controller;
-			this.listenTo( this.controller, 'change:current', this.render );
-			this.listenTo( this.controller, 'change:current', this.updateVisibility );
-		},
-
-		render: function() {
-			if ( this.buttonView ) {
-				this.buttonView.remove();
-			}
-
-			this.buttonView = new app.view.ToggleButton({
-				model: this.controller.get( 'current' )
-			});
-
-			this.$el.append( this.buttonView.render().$el );
-
-			return this;
-		},
-
-		updateVisibility: function() {
-			var module = this.controller.get( 'current' );
-			this.$el.toggle( !! module.get( 'canToggle' ) );
 		}
 	});
 
@@ -340,17 +185,7 @@
 	 */
 
 	$( document ).ready(function() {
-		var controller, modal,
-			modules = new app.model.Modules( _.where( settings.modules, { showInDashboard: true }) );
-
-		controller = new app.controller.ModalState({
-			current: new app.model.Module(),
-			modules: modules
-		});
-
-		modal = new app.view.Modal({
-			controller: controller
-		});
+		var modules = new app.model.Modules( _.where( settings.modules, { showInDashboard: true }) );
 
 		$( '.bandstand-module-card' ).each(function() {
 			var cardView,
@@ -358,15 +193,11 @@
 				model = modules.get( $module.data( 'module-id' ) );
 
 			model.set({
-				description: $module.find( '.bandstand-module-card-description' ).text(),
-				media: $module.find( '.bandstand-module-card-overview-media' ).detach().prop( 'outerHTML' ),
-				overview: $module.find( '.bandstand-module-card-overview' ).html()
+				description: $module.find( '.bandstand-module-card-description' ).text()
 			});
 
 			cardView = new app.view.ModuleCard({
 				el: this,
-				controller: controller,
-				modal: modal,
 				model: model
 			});
 

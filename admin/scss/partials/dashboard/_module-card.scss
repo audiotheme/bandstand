@@ -2,8 +2,6 @@
 -------------------------------------------------------------- */
 
 .bandstand-module-cards {
-	@include clearfix();
-
 	margin-bottom: 30px;
 }
 
@@ -13,54 +11,25 @@
 }
 
 .bandstand-module-card {
-	@include clearfix();
-
 	background-color: #fff;
-	background-position: 50% 30px;
-	background-repeat: no-repeat;
-	background-size: 36px 36px;
 	border: 1px solid #dedede;
-	margin: 0 8px 18px 10px;
-}
+	margin: 0 0 18px 0;
 
-.bandstand-module-card-actions {
-	background: #fafafa;
-	border-top: 1px solid #dedede;
-	float: left;
-	padding: 12px 20px;
-	width: 100%;
-}
-
-.bandstand-module-card-actions-primary {
-	float: right;
-
-	.spinner {
-		float: none;
-		margin-top: 4px;
-		vertical-align: middle;
-	}
-
-	.is-inactive & .button,
-	.is-active & button.button-activate {
+	&.is-inactive .button,
+	&.is-active button.button-activate {
 		display: none;
 	}
 
-	.is-active & .button,
-	.is-inactive & .button-activate {
+	&.is-active .button,
+	&.is-inactive .button-activate {
 		display: inline-block;
 	}
 }
 
-.bandstand-module-card-actions-secondary {
-	float: left;
-	line-height: 28px;
-}
-
-.bandstand-module-card-details {
+.bandstand-module-card-body {
 	color: #737780;
-	padding: 79px 20px 10px;
+	padding: 24px;
 	position: relative;
-	text-align: center;
 
 	p {
 		font-size: 14px;
@@ -68,53 +37,39 @@
 	}
 }
 
+.bandstand-module-card-header {
+	border-bottom: 1px solid #dedede;
+	line-height: 60px;
+	padding: 0 24px;
+	position: relative;
+
+	.bandstand-toggle-switch {
+		position: absolute;
+		top: 50%;
+		right: 24px;
+		transform: translateY(-50%);
+	}
+}
+
 .bandstand-module-card-name,
 h2.bandstand-module-card-name {
 	color: #000;
 	font-size: 18px;
-	margin: 0 0 10px 0;
-	padding: 0;
-	text-transform: uppercase;
-}
-
-.bandstand-module-card-overview-media {
-	height: 0;
+	font-weight: 400;
 	margin: 0;
-	position: relative;
-	padding-bottom: 56.25%;
-
-	iframe {
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-	}
-}
-
-.bandstand-module-card--discography {
-	background-image: url(../images/dashicons/discography.svg);
-}
-
-.bandstand-module-card--gigs {
-	background-image: url(../images/dashicons/gigs.svg);
-}
-
-.bandstand-module-card--videos {
-	background-image: url(../images/dashicons/videos.svg);
-}
-
-// Hide the overview when JavaScript is enabled.
-// It'll be displayed in the modal.
-.js .bandstand-module-card-overview {
-	display: none;
+	padding: 0;
 }
 
 @media (min-width: 782px) {
+	.bandstand-module-cards {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
 	.bandstand-module-card {
-		float: left;
+		flex: 0 0 calc(33.3333% - 12px);
+		max-width: calc(33.3333% - 12px);
 		margin: 0 9px 18px;
-		width: calc(33.33% - 12px);
 
 		&:nth-of-type(3n+1) {
 			clear: left;
@@ -125,9 +80,5 @@ h2.bandstand-module-card-name {
 			clear: right;
 			margin-right: 0;
 		}
-	}
-
-	.bandstand-module-card-details {
-		min-height: 220px;
 	}
 }

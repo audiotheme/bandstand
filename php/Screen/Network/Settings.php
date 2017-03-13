@@ -67,7 +67,7 @@ class Settings extends AbstractScreen {
 	 * @since 1.0.0
 	 */
 	public function display_screen() {
-		include( $this->plugin->get_path( 'admin/views/screen-network-settings.php' ) );
+		include( $this->plugin->get_path( 'admin/views/screen/network-settings.php' ) );
 	}
 
 	/**

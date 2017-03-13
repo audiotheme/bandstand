@@ -13,7 +13,7 @@
 
 <div class="bandstand-dashboard-addendum">
 	<aside>
-		<h1><?php esc_html_e( 'Need Help?', 'bandstand' ); ?></h1>
+		<h2><?php esc_html_e( 'Need Help?', 'bandstand' ); ?></h2>
 		<p>
 			<?php
 			printf(
@@ -41,7 +41,7 @@
 	</aside>
 
 	<aside>
-		<h1><?php esc_html_e( 'Email Updates', 'bandstand' ); ?></h1>
+		<h2><?php esc_html_e( 'Email Updates', 'bandstand' ); ?></h2>
 		<p>
 			<?php esc_html_e( 'Sign up for the latest updates, discounts, new products and more.', 'bandstand' ); ?>
 		</p>
@@ -62,7 +62,8 @@
 	</p>
 	<p>
 		Bandstand <?php echo esc_html( BANDSTAND_VERSION ); ?> |
-		<a href="https://twitter.com/AudioTheme"><?php esc_html_e( 'Follow @AudioTheme on Twitter', 'bandstand' ); ?></a>
+		<a href="https://twitter.com/AudioTheme"><?php esc_html_e( 'Follow @AudioTheme on Twitter', 'bandstand' ); ?></a> |
+		<a href="https://wordpress.org/support/plugin/bandstand/reviews/#postform"><?php esc_html_e( 'Leave a Review', 'bandstand' ); ?></a>
 	</p>
 </footer>
 

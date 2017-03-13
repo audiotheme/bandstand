@@ -171,28 +171,6 @@ class VideosModule extends AbstractModule {
 	}
 
 	/**
-	 * Display the module overview.
-	 *
-	 * @since 1.0.0
-	 */
-	public function display_overview() {
-		?>
-		<figure class="bandstand-module-card-overview-media">
-			<iframe src="https://www.youtube.com/embed/9x47jmTRUtk?rel=0"></iframe>
-		</figure>
-		<p>
-			<strong><?php esc_html_e( 'Easily build your video galleries from over a dozen popular video services.', 'bandstand' ); ?></strong>
-		</p>
-		<p>
-			<?php esc_html_e( "Showcasing your videos doesn't need to be a hassle. All of our themes allow you the ability to create your video galleries by simply embedding your videos from a number of video services, including: YouTube, Vimeo, WordPress.tv, DailyMotion, blip.tv, Flickr (images and video), Viddler, Hulu, Qik, Revision3, and FunnyorDie.com.", 'bandstand' ); ?>
-		</p>
-		<p>
-			<strong><?php esc_html_e( 'Try it out:', 'bandstand' ); ?></strong> <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=bandstand_video' ) ); ?>"><?php esc_html_e( 'Add a video', 'bandstand' ); ?></a>
-		</p>
-		<?php
-	}
-
-	/**
 	 * Display a button to perform the module's primary action.
 	 *
 	 * @since 1.0.0

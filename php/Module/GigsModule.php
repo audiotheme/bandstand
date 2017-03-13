@@ -202,28 +202,6 @@ class GigsModule extends AbstractModule {
 	}
 
 	/**
-	 * Display the module overview.
-	 *
-	 * @since 1.0.0
-	 */
-	public function display_overview() {
-		?>
-		<figure class="bandstand-module-card-overview-media">
-			<iframe src="https://www.youtube.com/embed/3ApVW-5MLLU?rel=0"></iframe>
-		</figure>
-		<p>
-			<strong><?php esc_html_e( 'Keep fans updated with live performances, tour dates and venue information.', 'bandstand' ); ?></strong>
-		</p>
-		<p>
-			<?php esc_html_e( "Schedule all the details about your next show, including location (address, city, state), dates, times, ticket prices and links to ticket purchasing. Set up your venue information by creating new venues and assigning shows to venues you've already created. You also have the ability to feature each venue's website, along with their contact information like email address and phone number.", 'bandstand' ); ?>
-		</p>
-		<p>
-			<strong><?php esc_html_e( 'Try it out:', 'bandstand' ); ?></strong> <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=bandstand_gig' ) ); ?>"><?php esc_html_e( 'Add a gig', 'bandstand' ); ?></a>
-		</p>
-		<?php
-	}
-
-	/**
 	 * Display a button to perform the module's primary action.
 	 *
 	 * @since 1.0.0

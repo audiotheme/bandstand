@@ -181,28 +181,6 @@ class DiscographyModule extends AbstractModule {
 	}
 
 	/**
-	 * Display the module overview.
-	 *
-	 * @since 1.0.0
-	 */
-	public function display_overview() {
-		?>
-		<figure class="bandstand-module-card-overview-media">
-			<iframe src="https://www.youtube.com/embed/ZopsZEiv1F0?rel=0" frameborder="0" allowfullscreen></iframe>
-		</figure>
-		<p>
-			<?php esc_html_e( 'Everything you need to build your Discography is at your fingertips.', 'bandstand' ); ?>
-		</p>
-		<p>
-			<?php esc_html_e( 'Your discography is the window through which listeners are introduced to and discover your music on the web. Encourage that discovery on your website through a detailed and organized history of your recorded output using the Bandstand discography feature. Upload album artwork, assign titles and tracks, add audio files, and enter links to purchase your music.', 'bandstand' ); ?>
-		</p>
-		<p>
-			<strong><?php esc_html_e( 'Try it out:', 'bandstand' ); ?></strong> <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=bandstand_record' ) ); ?>"><?php esc_html_e( 'Add a record', 'bandstand' ); ?></a>
-		</p>
-		<?php
-	}
-
-	/**
 	 * Display a button to perform the module's primary action.
 	 *
 	 * @since 1.0.0

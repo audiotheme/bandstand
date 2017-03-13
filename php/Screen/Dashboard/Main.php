@@ -1,6 +1,6 @@
 <?php
 /**
- * Dashboard screen functionality.
+ * Main dashboard screen.
  *
  * @package   Bandstand\Administration
  * @copyright Copyright (c) 2016, AudioTheme, LLC
@@ -9,15 +9,15 @@
  * @since     1.0.0
  */
 
-namespace Bandstand\Screen;
+namespace Bandstand\Screen\Dashboard;
 
 /**
- * Dashboard screen class.
+ * Main dashboard screen class.
  *
  * @package Bandstand\Administration
  * @since   1.0.0
  */
-class Dashboard extends AbstractScreen {
+class Main extends AbstractDashboardScreen {
 	/**
 	 * Register hooks.
 	 *
@@ -89,24 +89,6 @@ class Dashboard extends AbstractScreen {
 	}
 
 	/**
-	 * Display the screen header.
-	 *
-	 * @since 1.0.0
-	 */
-	public function display_screen_header() {
-		include( $this->plugin->get_path( 'admin/views/screen-dashboard-header.php' ) );
-	}
-
-	/**
-	 * Display the screen footer.
-	 *
-	 * @since 1.0.0
-	 */
-	public function display_screen_footer() {
-		include( $this->plugin->get_path( 'admin/views/screen-dashboard-footer.php' ) );
-	}
-
-	/**
 	 * Display the Dashboard screen.
 	 *
 	 * @since 1.0.0
@@ -120,7 +102,7 @@ class Dashboard extends AbstractScreen {
 		}
 
 		$this->display_screen_header();
-		include( $this->plugin->get_path( 'admin/views/screen-dashboard-modules.php' ) );
+		include( $this->plugin->get_path( 'admin/views/screen/dashboard-modules.php' ) );
 		$this->display_screen_footer();
 		include( $this->plugin->get_path( 'admin/views/templates-dashboard.php' ) );
 	}

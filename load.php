@@ -83,7 +83,7 @@ if ( is_admin() ) {
 		->register_hooks( new Provider\AdminHooks() )
 		->register_hooks( new AJAX\Admin() )
 		->register_hooks( new Provider\AdminAssets() )
-		->register_hooks( new Screen\Dashboard() )
+		->register_hooks( new Screen\Dashboard\Main() )
 		->register_hooks( new Screen\Settings() )
 		->register_hooks( new Provider\Setting\GoogleMaps() );
 }

@@ -14,11 +14,10 @@
  * Description: A platform for music-oriented websites, allowing for easy management of gigs, discography, videos and more.
  * Version:     0.1.0
  * Author:      AudioTheme
- * Author URI:  https://audiotheme.com/
+ * Author URI:  https://audiotheme.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=bandstand-author-uri&utm_campaign=plugins
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: bandstand
- * Requires at least: 4.7.0
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free

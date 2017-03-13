@@ -1,80 +1,86 @@
-/* Hero Section
--------------------------------------------------------------- */
-
-.bandstand-dashboard-hero {
-	background-image: url(../images/dashboard-hero.jpg);
-	background-position: 0 50%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	margin: -10px -20px 50px -22px;
-	padding: 50px 20px 94px 22px;
+.bandstand-dashboard-wrap {
+	font-size: 15px;
+	margin: 25px 40px 0 20px;
+	max-width: 1050px;
 	position: relative;
-	text-align: center;
-}
 
-.bandstand-dashboard-hero-branding {
-	color: #fff;
-	margin: 0 auto;
-	max-width: 800px;
-
-	p {
-		font-size: 30px;
-		font-weight: 300;
-		line-height: 1.5;
-		margin-bottom: 0;
+	@media only screen and ( max-width: 500px ) {
+		margin-left: 10px;
+		margin-right: 20px;
 	}
 }
 
-.bandstand-dashboard-hero-logo {
-	margin: 0 auto;
-	width: 191px;
 
-	.wrap & {
-		margin: 0 auto;
+/* Header Section
+-------------------------------------------------------------- */
+
+.bandstand-dashboard-header {
+	border-bottom: 1px solid #dedede;
+	margin-bottom: 40px;
+	min-height: 175px;
+	padding-right: 200px;
+	position: relative;
+
+	h1 {
+		color: #32373c;
+		font-size: 2.8em;
+		line-height: 1.2em;
+		margin: 0.2em 0 0 0;
 		padding: 0;
 	}
-}
 
-@media (min-height: 700px) {
-	.bandstand-dashboard-hero {
-		padding-top: 100px;
-		padding-bottom: 144px;
+	p {
+		color: #555d66;
+		font-size: 19px;
+		font-weight: 400;
+		line-height: 1.6em;
+		margin: 1em 0;
+	}
+
+	.nav-tab {
+		font-size: 18px;
+		padding-right: 15px;
+		padding-left: 15px;
 	}
 }
 
-
-/* Hero Tabs
--------------------------------------------------------------- */
-
-.bandstand-hero-tabs {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+.bandstand-badge {
+	align-items: center;
+	background: #e5002b;
+	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.2 );
+	display: flex;
+	color: #fff;
+	height: 140px;
+	justify-content: center;
+	margin-top: 5px;
 	position: absolute;
+	top: 0;
 	right: 0;
-	bottom: 0;
-	left: 0;
+	text-align: center;
+	width: 140px;
+
+	svg {
+		fill: currentColor;
+		height: 64px;
+		width: 64px;
+
+		path {
+			fill: currentColor;
+		}
+	}
 }
 
-.bandstand-hero-tab {
-	display: inline-block;
-	font-size: 16px;
-	margin: 0 3px;
-
-	a {
-		background: #f1f1f1;
-		background: rgba(241, 241, 241, 0.6);
-		color: #000;
-		display: block;
-		line-height: 44px;
-		padding: 0 16px;
-		text-decoration: none;
+@media only screen and ( max-width: 500px ) {
+	.bandstand-dashboard-header {
+		border-bottom-width: 0;
+		padding-right: 0;
 	}
 
-	a:focus,
-	a:hover,
-	&.is-active a {
-		background: #f1f1f1;
+	.bandstand-badge {
+		height: auto;
+		padding: 20px 0;
+		position: relative;
+		width: 100%;
 	}
 }
 
@@ -85,9 +91,7 @@
 .bandstand-dashboard-lead {
 	color: #545454;
 	font-weight: 300;
-	margin: 0 auto 40px auto;
-	max-width: 900px;
-	text-align: center;
+	margin: 0 0 40px 0;
 
 	p {
 		font-size: 24px;

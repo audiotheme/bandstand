@@ -9,12 +9,11 @@
 .bandstand-dashboard-addendum {
 	@include clearfix();
 
-	background: #fff;
 	border-color: #dedede;
 	border-style: solid;
 	border-width: 1px 0 0 0;
 	color: #737780;
-	margin: 0 -20px 40px -22px;
+	margin-bottom: 40px;
 	position: relative;
 	text-align: center;
 }
@@ -29,9 +28,10 @@
 		margin-bottom: 0;
 	}
 
-	h1 {
+	h2 {
 		color: #222;
 		font-weight: 300;
+		font-size: 24px;
 		margin-top: 0;
 	}
 
