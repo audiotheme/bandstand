@@ -14,7 +14,7 @@ get_header();
 
 <?php do_action( 'bandstand_before_content' ); ?>
 
-<?php get_bandstand_template_part( 'parts/archive-header', 'record' ); ?>
+<?php get_bandstand_template_part( 'partials/archive-header', 'record' ); ?>
 
 <?php get_bandstand_template_part( 'record/loop', 'archive' ); ?>
 
